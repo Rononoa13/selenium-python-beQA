@@ -6,7 +6,7 @@ options = webdriver.ChromeOptions()
 
 
 @pytest.fixture(autouse=True, scope='class')
-def setup(request):
+def setup(request:webdriver):
     driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(5)
     request.cls.driver = driver

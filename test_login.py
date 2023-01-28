@@ -16,24 +16,13 @@ options.add_experimental_option("detach", True)
 
 
 class Testlogin(Toolbox):
-    load_dotenv()
-    secret_username = os.getenv('UNAME')
-    secret_password = os.getenv('PWORD')
-    invalid_password = os.getenv('INVALID_PWD')
-
-    def test_url(self):
-        
-        self.driver.get(os.getenv('BASE_URL'))
-        self.driver.maximize_window()
-        page_url = self.driver.current_url
-        assert os.getenv('BASE_URL') in page_url
-
-
     def test_title(self):
         assert self.driver.title == 'Zero - Personal Banking - Loans - Credit Cards', "The expected title was not correct"
 
     # Positive test
     def test_login_with_valid_cred(self):
+        self.test_url()
+        
         self.login(self.secret_username, self.secret_password)
 
         self.driver.back()
