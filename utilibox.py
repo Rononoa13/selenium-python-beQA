@@ -10,7 +10,7 @@ class Toolbox:
     secret_password = os.getenv('PWORD')
     invalid_password = os.getenv('INVALID_PWD')
 
-    def test_url(self):
+    def url(self):
         self.driver.get(os.getenv('BASE_URL'))
         self.driver.maximize_window()
         page_url = self.driver.current_url

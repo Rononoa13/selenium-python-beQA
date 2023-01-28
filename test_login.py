@@ -21,8 +21,8 @@ class Testlogin(Toolbox):
 
     # Positive test
     def test_login_with_valid_cred(self):
-        self.test_url()
-        
+        self.url()
+
         self.login(self.secret_username, self.secret_password)
 
         self.driver.back()
